@@ -1,0 +1,22 @@
+﻿@model CRM.Models.NoteViewModel
+
+@{
+    ViewBag.Title = "Add Customer Note";
+}
+
+<h2>Add Customer Note</h2>
+<hr />
+@using (@Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.CustomerId)
+    <div style="margin-bottom: 20px; margin-top: 20px;">
+        <div>
+            <b>Enter your note in the box below.</b>
+        </div>
+        <div>
+            @Html.TextAreaFor(m => m.Body)
+            @Html.ValidationMessageFor(m => m.Body)
+        </div>
+    </div>
+    <input type="submit" value="Add Note" />
+}

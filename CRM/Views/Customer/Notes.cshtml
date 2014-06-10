@@ -1,0 +1,31 @@
+﻿@model CRM.Models.Customer
+
+@{
+    ViewBag.Title = "Customer Notes";
+}
+
+<h2>Customer Notes</h2>
+<hr />
+
+<div>
+    <table>
+        <tr>
+            <th>Note</th>
+            <th>Created By</th>
+            <th>Created Date</th>
+        </tr>
+        @foreach (var note in Model.Notes)
+        {
+            <tr>
+                <td>@note.Body</td>
+                <td>@note.UserName</td>
+                <td>@note.DateCreated</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<div>
+    @Html.ActionLink("Customer Details", "Details", "Customer", new { id = Model.Id })
+</div>
+
